@@ -1,0 +1,12 @@
+import databaseClient, { type Rows } from "../../../database/client";
+
+class UserRepository {
+  async readAll() {
+    const [rows] = await databaseClient.query<Rows>(`
+        SELECT * 
+        FROM user`);
+    return rows;
+  }
+}
+
+export default new UserRepository();
