@@ -1,10 +1,9 @@
-import "./global.css";
+import { Outlet } from "react-router";
+
 function App() {
   return (
     <>
-      <main>
-        <h1>Coucou</h1>
-      </main>
+      <Outlet />
     </>
   );
 }
