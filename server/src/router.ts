@@ -10,6 +10,7 @@ const router = express.Router();
 import itemActions from "./modules/item/itemActions";
 import poemActions from "./modules/poem/poemActions";
 import userActions from "./modules/user/userActions";
+import file from "./utils/file";
 
 router.get("/api/items", itemActions.browse);
 router.get("/api/items/:id", itemActions.read);
@@ -20,7 +21,7 @@ router.get("/api/users", userActions.browse);
 /* ************************************************************************* */
 router.get("/api/poems", poemActions.browse);
 router.get("/api/poem/:id", poemActions.readByIdWithAuthor);
-router.post("/api/poem", poemActions.add);
+router.post("/api/poem", file.imageUpload, file.poemImage, poemActions.add);
 router.put("/api/poem/:id", poemActions.edit);
 router.delete("/api/poem/:id", poemActions.destroy);
 export default router;
