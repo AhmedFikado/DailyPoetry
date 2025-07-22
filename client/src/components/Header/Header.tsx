@@ -15,7 +15,7 @@ function Header() {
               <Link to="/">Poèmes</Link>
             </li>
             <li>
-              <Link to="/">Ajouter</Link>
+              <Link to="/add-poem">Ajouter</Link>
             </li>
             <li>
               <Link to="/">Modifier</Link>
