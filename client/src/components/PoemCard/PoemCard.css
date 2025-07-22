@@ -1,0 +1,24 @@
+.poem-card-figure {
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  transition: box-shadow 0.2s, transform 0.3s;
+  &:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
+  }
+  img {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+  }
+  figcaption {
+    background: var(--background-figcaption);
+    padding: 16px 4px;
+    font-size: 1.1rem;
+    color: var(--text);
+    display: flex;
+    justify-content: space-between;
+  }
+}

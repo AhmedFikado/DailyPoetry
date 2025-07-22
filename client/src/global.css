@@ -14,6 +14,10 @@ body {
   margin: 0;
   padding: 0;
 }
+:root {
+  --text: #222;
+  --background-figcaption: #e6e2e2;
+}
 
 ul {
   list-style: none;
