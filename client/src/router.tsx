@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router";
 import App from "./App";
+import AddPoemPage from "./pages/AddPoemPage/AddPoemPage";
 import HomePage from "./pages/HomePage/HomePage";
 import PoemDetailPage from "./pages/PoemDetailPage/PoemDetailPage";
 
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
       {
         element: <PoemDetailPage />,
         path: "poem/:id",
+      },
+      {
+        element: <AddPoemPage />,
+        path: "add-poem",
       },
     ],
   },

@@ -1,0 +1,65 @@
+.add-poem-page-main {
+  margin: 0 8px;
+  text-align: center;
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    input {
+      margin: 0 auto;
+      width: 100%;
+      padding: 12px 0;
+      background: #f5f8fa;
+      border: 1px solid #bbbbbb;
+      border-radius: 8px;
+    }
+    textarea {
+      width: 100%;
+      margin: 0 auto;
+      background: #f5f8fa;
+      border: 1px solid #bbbbbb;
+      border-radius: 8px;
+    }
+    #image-poem {
+      display: none;
+    }
+    .file-label {
+      /* display: inline-block; */
+      padding: 10px 24px;
+      background: #4caf50;
+      color: #fff;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 0 auto;
+      transition: background 0.2s;
+      &:hover {
+        background: #388e3c;
+      }
+    }
+
+    button {
+      margin: 0 auto;
+      padding: 8px 56px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      background: #d9d9d9;
+      transition: background 0.4s;
+      &:hover {
+        background-color: #888888;
+      }
+    }
+  }
+  @media screen and (min-width: 768px) {
+    form {
+      textarea {
+        width: 80%;
+        max-width: 800px;
+      }
+      input {
+        width: 80%;
+        max-width: 800px;
+      }
+    }
+  }
+}
