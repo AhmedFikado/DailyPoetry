@@ -37,7 +37,14 @@ const login: RequestHandler = async (req, res, next) => {
     next(err);
   }
 };
-
+const logout: RequestHandler = async (req, res, next) => {
+  try {
+    res.clearCookie("token", { httpOnly: true, secure: false });
+    res.sendStatus(200);
+  } catch (err) {
+    res.sendStatus(500);
+  }
+};
 const refreshToken: RequestHandler = async (req, res, next) => {
   try {
     const token = req.cookies.token;
@@ -68,4 +75,4 @@ const refreshToken: RequestHandler = async (req, res, next) => {
   }
 };
 
-export default { login, refreshToken };
+export default { login, logout, refreshToken };
