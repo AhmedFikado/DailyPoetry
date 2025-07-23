@@ -46,7 +46,6 @@ function AddPoemPage() {
             rows={7}
             placeholder="ex: Demain dès l'aube à l'heure où blanchit la campagne..."
           />
-          <label htmlFor="image-poem">Image</label>
           <input
             type="file"
             name="image"
