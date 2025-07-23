@@ -17,3 +17,13 @@ interface Poem {
 interface PoemWithAuthor extends Poem {
   user_name: string;
 }
+
+interface PoemDetailWithAuthor {
+  id: number;
+  title: string;
+  description?: string;
+  image: string;
+  date?: string;
+  user_id?: number;
+  user_name?: string;
+}
