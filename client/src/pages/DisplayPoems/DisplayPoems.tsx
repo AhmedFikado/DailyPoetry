@@ -3,7 +3,7 @@ import PoemCard from "../../components/PoemCard/PoemCard";
 import "./DisplayPoems.css";
 
 function DisplayPoems() {
-  const [poems, setPoems] = useState<Poem[]>([]);
+  const [poems, setPoems] = useState<PoemWithAuthor[]>([]);
   useEffect(() => {
     fetch("http://localhost:3310/api/poems")
       .then((res) => res.json())
@@ -21,10 +21,11 @@ function DisplayPoems() {
     <main className="display-poems-page-main">
       {poems.map((poem) => (
         <PoemCard
-          key={poem.id}
-          id={poem.id}
+          key={poem.poem_id}
+          id={poem.poem_id}
           title={poem.title}
-          image={poem.image}
+          image={poem.poem_image}
+          name={poem.user_name}
         />
       ))}
     </main>

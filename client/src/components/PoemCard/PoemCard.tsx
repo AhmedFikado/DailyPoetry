@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 import "./PoemCard.css";
 
-function PoemCard({ id, title, image }: PoemCardProps) {
+function PoemCard({ id, title, image, name }: PoemCardProps) {
   return (
     <figure className="poem-card-figure">
       <Link to={`poem/${id}`}>
@@ -9,7 +9,7 @@ function PoemCard({ id, title, image }: PoemCardProps) {
       </Link>
       <figcaption>
         <span>{title}</span>
-        <span>de artiste mystère</span>
+        <span>{name}</span>
       </figcaption>
     </figure>
   );

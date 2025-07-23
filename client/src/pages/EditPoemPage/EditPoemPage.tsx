@@ -83,7 +83,7 @@ function EditPoemPage() {
           <label
             htmlFor="image-poem"
             className="file-label"
-            defaultValue={poem.image}
+            defaultValue={poem.poem_image}
           >
             Choisir une image
           </label>
