@@ -2,6 +2,7 @@ CREATE TABLE user (
   id INT NOT NULL AUTO_INCREMENT,
   name VARCHAR(45) NOT NULL,
   email VARCHAR(255) NOT NULL,
+  password VARCHAR(255) NOT NULL,
   image VARCHAR(255),
   PRIMARY KEY (id)
 );
@@ -18,11 +19,11 @@ CREATE TABLE poem (
 );
 
 
-INSERT INTO user (id, name, email, image) VALUES
-  (1, "Paul Éluard", "eluard@example.com", "eluard.jpg"),
-  (2, "Anna de Noailles", "noailles@example.com", "noailles.jpg"),
-  (3, "René Char", "char@example.com", "char.jpg"),
-  (4, "Ahmed Firoum", "ahmed@example.com", "Guts.webp");
+INSERT INTO user (id, name, email, password, image) VALUES
+  (1, "Paul Éluard", "eluard@example.com", "$argon2i$v=19$m=16,t=2,p=1$bzNlRVZabTVMaG93WkVLbQ$7x4ON3E2xJSzJyUr9vPMQQ", "eluard.jpg"),
+  (2, "Anna de Noailles", "noailles@example.com", "$argon2i$v=19$m=16,t=2,p=1$bzNlRVZabTVMaG93WkVLbQ$7x4ON3E2xJSzJyUr9vPMQQ", "noailles.jpg"),
+  (3, "René Char", "char@example.com", "$argon2i$v=19$m=16,t=2,p=1$bzNlRVZabTVMaG93WkVLbQ$7x4ON3E2xJSzJyUr9vPMQQ", "char.jpg"),
+  (4, "Ahmed Firoum", "ahmed@example.com", "$argon2i$v=19$m=16,t=2,p=1$bzNlRVZabTVMaG93WkVLbQ$7x4ON3E2xJSzJyUr9vPMQQ", "Guts.webp");
 
 
 INSERT INTO poem (id, title, description, image, date, user_id) VALUES
