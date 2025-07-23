@@ -10,6 +10,14 @@ const browse: RequestHandler = async (req, res, next) => {
     next(err);
   }
 };
+const browsePoemsWithUser: RequestHandler = async (req, res, next) => {
+  try {
+    const poemsWithAuthor = await poemRepository.readAllWithAuthor();
+    res.json(poemsWithAuthor);
+  } catch (err) {
+    next(err);
+  }
+};
 const readById: RequestHandler = async (req, res, next) => {
   try {
     const poemId = Number(req.params.id);
@@ -115,4 +123,12 @@ const destroy: RequestHandler = async (req, res, next) => {
     next(err);
   }
 };
-export default { browse, readById, readByIdWithAuthor, add, edit, destroy };
+export default {
+  browse,
+  browsePoemsWithUser,
+  readById,
+  readByIdWithAuthor,
+  add,
+  edit,
+  destroy,
+};
