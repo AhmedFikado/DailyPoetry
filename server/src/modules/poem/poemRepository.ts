@@ -17,6 +17,7 @@ class PoemRepository {
        p.description,
        p.image AS poem_image,
        p.date,
+       p.user_id AS poem_user_id
        u.id AS user_id,
        u.name AS user_name,
        u.email,
