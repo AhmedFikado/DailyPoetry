@@ -27,7 +27,7 @@ function PoemDetailPage() {
         <h1>{poem.title}</h1>
         <p>{poem.description}</p>
         <p>
-          {poem.user_name}
+          {poem.name}
           <br /> {poem.date}
         </p>
       </section>
