@@ -17,6 +17,7 @@ function HomePage() {
       </main>
     );
   }
+  console.log(poems);
   return (
     <main className="home-page-main">
       {poems.map((poem) => (
