@@ -2,17 +2,18 @@ interface PoemCardProps {
   id: number;
   title: string;
   image: string;
+  name: string;
 }
 
 interface Poem {
-  id: number;
+  poem_id: number;
   title: string;
   description?: string;
-  image: string;
+  poem_image: string;
   date?: string;
   user_id?: number;
 }
 
 interface PoemWithAuthor extends Poem {
-  name: string;
+  user_name: string;
 }

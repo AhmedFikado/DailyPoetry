@@ -22,12 +22,12 @@ function PoemDetailPage() {
   }
   return (
     <main className="poem-detail-page-main">
-      <img src={`http://localhost:3310/${poem.image}`} alt="" />
+      <img src={`http://localhost:3310/${poem.poem_image}`} alt="" />
       <section>
         <h1>{poem.title}</h1>
         <p>{poem.description}</p>
         <p>
-          {poem.name}
+          {poem.user_name}
           <br /> {poem.date}
         </p>
       </section>
