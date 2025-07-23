@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router";
 import PoemCard from "../../components/PoemCard/PoemCard";
 import "./DisplayPoems.css";
 
@@ -21,9 +20,12 @@ function DisplayPoems() {
   return (
     <main className="display-poems-page-main">
       {poems.map((poem) => (
-        <Link to={`/poems/${poem.id}`} key={poem.id}>
-          <PoemCard title={poem.title} image={poem.image} />
-        </Link>
+        <PoemCard
+          key={poem.id}
+          id={poem.id}
+          title={poem.title}
+          image={poem.image}
+        />
       ))}
     </main>
   );

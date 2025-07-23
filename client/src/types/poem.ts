@@ -1,3 +1,9 @@
+interface PoemCardProps {
+  id: number;
+  title: string;
+  image: string;
+}
+
 interface Poem {
   id: number;
   title: string;
