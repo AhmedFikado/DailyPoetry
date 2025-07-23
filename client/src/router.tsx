@@ -4,6 +4,7 @@ import AddPoemPage from "./pages/AddPoemPage/AddPoemPage";
 import DisplayPoems from "./pages/DisplayPoems/DisplayPoems";
 import EditPoemPage from "./pages/EditPoemPage/EditPoemPage";
 import HomePage from "./pages/HomePage/HomePage";
+import LoginPage from "./pages/LoginPage/LoginPage";
 import PoemDetailPage from "./pages/PoemDetailPage/PoemDetailPage";
 
 const router = createBrowserRouter([
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
       {
         element: <HomePage />,
         path: "",
+      },
+      {
+        element: <LoginPage />,
+        path: "/login",
       },
       {
         element: <PoemDetailPage />,

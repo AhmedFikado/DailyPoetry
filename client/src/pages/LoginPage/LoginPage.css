@@ -1,0 +1,25 @@
+.login-page-main {
+  min-height: calc(100vh - 120px);
+  display: grid;
+  place-items: center;
+  form {
+    display: grid;
+    gap: 16px;
+    input {
+      margin: 0 auto;
+      width: 300px;
+      padding: 12px 8px;
+      background: #f5f8fa;
+      border: 1px solid #bbbbbb;
+      border-radius: 8px;
+    }
+    button {
+      padding: 8px;
+      width: 200px;
+      justify-self: center;
+      cursor: pointer;
+      border: 1px solid black;
+      border-radius: 8px;
+    }
+  }
+}

@@ -17,11 +17,11 @@ function Header() {
             <li>
               <Link to="/add-poem">Ajouter</Link>
             </li>
-            <li>
-              <Link to="/poems">Modifier</Link>
-            </li>
           </ul>
         </nav>
+        <Link to="/login">
+          <img src="/connexion.png" alt="logo connexion" id="user-icon" />
+        </Link>
       </div>
       <hr />
     </header>
