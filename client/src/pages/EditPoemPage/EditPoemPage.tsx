@@ -14,7 +14,30 @@ function EditPoemPage() {
       });
   }, [id]);
 
-  const handleOnSubmit = () => {
+  const handleOnSubmitEdit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const formObject = Object.fromEntries(formData.entries());
+    fetch(`http://localhost:3310/api/poem/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formObject),
+    })
+      .then((res) => res.json())
+      .then(() => {
+        toast.success("Poème modifié !");
+        fetch(`http://localhost:3310/api/poem/${id}`, {})
+          .then((res) => res.json())
+          .then((data) => {
+            setPoem(data);
+          });
+      });
+  };
+  console.log(poem);
+
+  const handleOnSubmitDelete = () => {
     fetch(`http://localhost:3310/api/poem/${id}`, {
       method: "delete",
     }).then((res) => {
@@ -33,7 +56,7 @@ function EditPoemPage() {
   return (
     <>
       <main className="edit-poem-page-main">
-        <form>
+        <form onSubmit={handleOnSubmitEdit}>
           <label htmlFor="title">Titre</label>
           <input type="text" name="title" defaultValue={poem.title} />
           <label htmlFor="description">Texte</label>
@@ -58,9 +81,9 @@ function EditPoemPage() {
 
           <label htmlFor="date">Date</label>
           <input type="text" name="date" defaultValue={poem.date} />
-          <button type="submit">Ajouter</button>
+          <button type="submit">Modifier</button>
         </form>
-        <button type="button" onClick={handleOnSubmit}>
+        <button type="button" onClick={handleOnSubmitDelete}>
           Supprimer
         </button>
       </main>
