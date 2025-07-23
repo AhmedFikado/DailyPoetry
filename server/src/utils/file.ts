@@ -35,10 +35,8 @@ const poemImage: RequestHandler = (req, res, next) => {
   try {
     if (req.file) {
       req.body.image = `/${req.file.filename}`;
-      next();
-    } else {
-      res.status(400).json("There was a problem with the uploaded file");
     }
+    next();
   } catch (err) {
     next(err);
   }
