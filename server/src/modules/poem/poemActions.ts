@@ -71,8 +71,13 @@ const edit: RequestHandler = async (req, res, next) => {
       res.status(400).json("Problem with the id");
       return;
     }
-    const { title, description, image, date } = req.body;
-    if (!title || !description || !image || !date) {
+    let image = req.body.image;
+    if (!image || typeof image !== "string" || image === "{}") {
+      const existingPoem = await poemRepository.readById(poemId);
+      image = existingPoem?.image;
+    }
+    const { title, description, date } = req.body;
+    if (!title || !description || !date) {
       res.status(400).json("Missing required fields");
       return;
     }
@@ -85,7 +90,7 @@ const edit: RequestHandler = async (req, res, next) => {
     };
     const result = await poemRepository.update(newPoem);
     if (result === 0) {
-      res.sendStatus(404);
+      res.status(404).json("Edit failed");
     } else {
       res.status(200).json(result);
     }
