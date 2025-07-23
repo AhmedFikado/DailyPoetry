@@ -19,7 +19,7 @@ router.post("/api/items", itemActions.add);
 /* ************************************************************************* */
 router.get("/api/users", userActions.browse);
 /* ************************************************************************* */
-router.get("/api/poems", poemActions.browse);
+router.get("/api/poems", poemActions.browsePoemsWithUser);
 router.get("/api/poem/:id", poemActions.readByIdWithAuthor);
 router.post("/api/poem", file.imageUpload, file.poemImage, poemActions.add);
 router.put("/api/poem/:id", file.imageUpload, file.poemImage, poemActions.edit);

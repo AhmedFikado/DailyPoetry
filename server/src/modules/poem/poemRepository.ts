@@ -10,6 +10,21 @@ class PoemRepository {
             FROM poem`);
     return rows;
   }
+  async readAllWithAuthor() {
+    const [rows] = await databaseClient.query<Rows>(`
+      SELECT 
+      p.id AS poem_id, p.title,
+       p.description,
+       p.image AS poem_image,
+       p.date,
+       u.id AS user_id,
+       u.name AS user_name,
+       u.email,
+       u.image AS user_image
+       FROM poem AS p
+       JOIN user AS u ON p.user_id = u.id`);
+    return rows;
+  }
   async readById(id: number) {
     const [rows] = await databaseClient.query<Rows>(
       `
