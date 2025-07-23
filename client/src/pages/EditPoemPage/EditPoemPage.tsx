@@ -1,11 +1,24 @@
 import { useParams } from "react-router";
 import "./EditPoemPage.css";
-import { useEffect, useState } from "react";
-import { toast } from "react-toastify";
+import { type ChangeEvent, useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
 
 function EditPoemPage() {
   const [poem, setPoem] = useState<Poem>();
+  const [file, setFile] = useState<File | undefined>();
   const { id } = useParams();
+  const handleFile = (e: ChangeEvent<HTMLInputElement>) => {
+    const selectedFile = e.target.files?.[0];
+    if (selectedFile) {
+      if (selectedFile.size > 500 * 1024) {
+        toast.error("Le fichier ne doit pas dépasser 500 ko");
+        e.target.value = "";
+        setFile(undefined);
+        return;
+      }
+      setFile(selectedFile);
+    }
+  };
   useEffect(() => {
     fetch(`http://localhost:3310/api/poem/${id}`)
       .then((res) => res.json())
@@ -17,13 +30,9 @@ function EditPoemPage() {
   const handleOnSubmitEdit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-    const formObject = Object.fromEntries(formData.entries());
     fetch(`http://localhost:3310/api/poem/${id}`, {
       method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formObject),
+      body: formData,
     })
       .then((res) => res.json())
       .then(() => {
@@ -35,7 +44,6 @@ function EditPoemPage() {
           });
       });
   };
-  console.log(poem);
 
   const handleOnSubmitDelete = () => {
     fetch(`http://localhost:3310/api/poem/${id}`, {
@@ -70,6 +78,7 @@ function EditPoemPage() {
             name="image"
             id="image-poem"
             accept="png, jpg, jpeg"
+            onChange={handleFile}
           />
           <label
             htmlFor="image-poem"
@@ -79,6 +88,17 @@ function EditPoemPage() {
             Choisir une image
           </label>
 
+          {file && (
+            <section>
+              Détails fichier :
+              <ul>
+                <li>Nom: {file.name}</li>
+                <li>Type: {file.type}</li>
+                <li>Taille: {file.size} bytes</li>
+              </ul>
+            </section>
+          )}
+
           <label htmlFor="date">Date</label>
           <input type="text" name="date" defaultValue={poem.date} />
           <button type="submit">Modifier</button>
@@ -87,6 +107,7 @@ function EditPoemPage() {
           Supprimer
         </button>
       </main>
+      <ToastContainer position="bottom-right" />
     </>
   );
 }
