@@ -18,6 +18,7 @@ router.get("/api/items/:id", itemActions.read);
 router.post("/api/items", itemActions.add);
 /* ************************************************************************* */
 router.post("/api/login", auth.login);
+router.get("/api/refresh-token", auth.refreshToken);
 
 /* ************************************************************************* */
 router.get("/api/users", userActions.browse);
