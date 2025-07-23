@@ -17,6 +17,7 @@ function LoginPage() {
         toast.error("Echec de connexion");
         throw new Error("Connexion failed");
       }
+      toast.success("Connexion réussie");
       return response.json();
     });
   };
