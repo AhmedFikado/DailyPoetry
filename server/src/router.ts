@@ -26,6 +26,7 @@ router.get("/api/users", userActions.browse);
 /* ************************************************************************* */
 router.get("/api/poems", poemActions.browsePoemsWithUser);
 router.get("/api/poem/:id", poemActions.readByIdWithAuthor);
+router.get("/api/poet/:id/poems", poemActions.readPoetPoems);
 router.post("/api/poem", file.imageUpload, file.poemImage, poemActions.add);
 router.put("/api/poem/:id", file.imageUpload, file.poemImage, poemActions.edit);
 router.delete("/api/poem/:id", poemActions.destroy);
