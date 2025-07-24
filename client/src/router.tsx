@@ -1,11 +1,11 @@
 import { createBrowserRouter } from "react-router";
 import App from "./App";
 import AddPoemPage from "./pages/AddPoemPage/AddPoemPage";
-import DisplayPoems from "./pages/DisplayPoems/DisplayPoems";
 import EditPoemPage from "./pages/EditPoemPage/EditPoemPage";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import PoemDetailPage from "./pages/PoemDetailPage/PoemDetailPage";
+import UserPoemsPage from "./pages/UserPoemsPage/UserPoemsPage";
 
 const router = createBrowserRouter([
   {
@@ -29,8 +29,8 @@ const router = createBrowserRouter([
         path: "add-poem",
       },
       {
-        element: <DisplayPoems />,
-        path: "poems",
+        element: <UserPoemsPage />,
+        path: "user/:id/poems",
       },
       {
         element: <EditPoemPage />,

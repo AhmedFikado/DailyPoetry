@@ -1,7 +1,9 @@
 import { Link } from "react-router";
 import "./Header.css";
+import { useAuth } from "../../hooks/useAuth";
 
 function Header() {
+  const { isLogged, user } = useAuth();
   return (
     <header>
       <div>
@@ -17,11 +19,20 @@ function Header() {
             <li>
               <Link to="/add-poem">Ajouter</Link>
             </li>
+            {isLogged && (
+              <li>
+                <Link to={`/user/${user?.id}/poems`}>Mes poèmes</Link>
+              </li>
+            )}
           </ul>
         </nav>
-        <Link to="/login">
-          <img src="/connexion.png" alt="logo connexion" id="user-icon" />
-        </Link>
+        {!isLogged ? (
+          <Link to="/login">
+            <img src="/connexion.png" alt="logo connexion" id="user-icon" />
+          </Link>
+        ) : (
+          <span>Se déconnecter</span>
+        )}
       </div>
       <hr />
     </header>
