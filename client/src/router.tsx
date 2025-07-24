@@ -34,7 +34,7 @@ const router = createBrowserRouter([
       },
       {
         element: <EditPoemPage />,
-        path: "poems/:id",
+        path: "user/edit/poem/:id",
       },
     ],
   },

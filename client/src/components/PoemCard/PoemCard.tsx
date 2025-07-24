@@ -1,10 +1,15 @@
 import { Link } from "react-router";
 import "./PoemCard.css";
 
-function PoemCard({ id, title, image, name }: PoemCardProps) {
+function PoemCard({
+  linkTo,
+  title,
+  image,
+  name,
+}: PoemCardProps & { linkTo: string }) {
   return (
     <figure className="poem-card-figure">
-      <Link to={`/poem/${id}`}>
+      <Link to={linkTo}>
         <img src={`http://localhost:3310/${image}`} alt="illustration" />
       </Link>
       <figcaption>

@@ -26,9 +26,11 @@ function Header() {
             <li>
               <Link to="/">Poèmes</Link>
             </li>
-            <li>
-              <Link to="/add-poem">Ajouter</Link>
-            </li>
+            {isLogged && (
+              <li>
+                <Link to="/add-poem">Ajouter</Link>
+              </li>
+            )}
             {isLogged && (
               <li>
                 <Link to={`/user/${user?.id}/poems`}>Mes poèmes</Link>

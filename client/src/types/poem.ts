@@ -1,5 +1,4 @@
 interface PoemCardProps {
-  id: number;
   title: string;
   image: string;
   name: string;
