@@ -26,6 +26,13 @@ header {
     #user-icon {
       width: 30px;
     }
+    button {
+      font-family: "Playfair Display", sans-serif;
+      background: none;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+    }
 
     @media screen and (min-width: 375px) {
       font-size: 1rem;
@@ -58,6 +65,9 @@ header {
         ul {
           gap: 80px;
         }
+      }
+      button {
+        font-size: 1.2rem;
       }
     }
   }

@@ -3,7 +3,17 @@ import "./Header.css";
 import { useAuth } from "../../hooks/useAuth";
 
 function Header() {
-  const { isLogged, user } = useAuth();
+  const { isLogged, setIsLogged, user } = useAuth();
+  const handleLogout = () => {
+    fetch("http://localhost:3310/api/logout", {
+      credentials: "include",
+    }).then((res) => {
+      if (res.ok) {
+        setIsLogged(false);
+      }
+    });
+  };
+
   return (
     <header>
       <div>
@@ -31,7 +41,9 @@ function Header() {
             <img src="/connexion.png" alt="logo connexion" id="user-icon" />
           </Link>
         ) : (
-          <span>Se déconnecter</span>
+          <button type="button" onClick={handleLogout}>
+            Se déconnecter
+          </button>
         )}
       </div>
       <hr />
