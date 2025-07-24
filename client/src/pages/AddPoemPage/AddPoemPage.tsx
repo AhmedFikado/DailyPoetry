@@ -1,10 +1,11 @@
 import { type ChangeEvent, useState } from "react";
 import "./AddPoemPage.css";
 import { ToastContainer, toast } from "react-toastify";
+import { useAuth } from "../../hooks/useAuth";
 
 function AddPoemPage() {
   const [file, setFile] = useState<File | undefined>();
-
+  const { user } = useAuth();
   const handleFile = (e: ChangeEvent<HTMLInputElement>) => {
     const selectedFile = e.target.files?.[0];
     if (selectedFile) {
@@ -38,6 +39,8 @@ function AddPoemPage() {
       <main className="add-poem-page-main">
         <h1>Ajout de poème</h1>
         <form onSubmit={handleSubmit}>
+          <input type="hidden" name="user_id" value={user?.id} />
+
           <label htmlFor="title">Titre</label>
           <input type="text" name="title" placeholder="ex: Demain dès l'aube" />
           <label htmlFor="description">Texte</label>
