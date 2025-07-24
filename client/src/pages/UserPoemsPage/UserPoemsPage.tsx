@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
 import PoemCard from "../../components/PoemCard/PoemCard";
-import "./DisplayPoems.css";
+import "./UserPoemsPage.css";
+import { useParams } from "react-router";
 
-function DisplayPoems() {
+function UserPoemsPage() {
   const [poems, setPoems] = useState<PoemWithAuthor[]>([]);
+  const { id } = useParams();
   useEffect(() => {
-    fetch("http://localhost:3310/api/poems")
+    fetch(`http://localhost:3310/api/poet/${id}/poems`)
       .then((res) => res.json())
       .then((data) => setPoems(data));
-  }, []);
+  }, [id]);
 
   if (!poems) {
     return (
@@ -32,4 +34,4 @@ function DisplayPoems() {
   );
 }
 
-export default DisplayPoems;
+export default UserPoemsPage;
