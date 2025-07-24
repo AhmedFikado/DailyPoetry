@@ -76,9 +76,8 @@ class PoemRepository {
       `
         INSERT INTO poem
         (title, description, image, date, user_id)
-        VALUES (?, ?, ?, ?, 1)`,
-      [body.title, body.description, body.image, body.date],
-      // ATTENTION, en dure pour le moment niveau user_id, à voir avec l'amélioration
+        VALUES (?, ?, ?, ?, ?)`,
+      [body.title, body.description, body.image, body.date, body.user_id],
     );
     return result.affectedRows;
   }
