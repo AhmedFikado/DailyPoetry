@@ -24,7 +24,7 @@ function UserPoemsPage() {
       {poems.map((poem) => (
         <PoemCard
           key={poem.poem_id}
-          linkTo={`/user/edit/poem/${id}`}
+          linkTo={`/user/edit/poem/${poem.poem_id}`}
           title={poem.title}
           image={poem.poem_image}
           name={poem.user_name}
