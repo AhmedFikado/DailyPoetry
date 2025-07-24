@@ -23,7 +23,7 @@ function HomePage() {
       {poems.map((poem) => (
         <PoemCard
           key={poem.poem_id}
-          id={poem.poem_id}
+          linkTo={`/poem/${poem.poem_id}`}
           title={poem.title}
           image={poem.poem_image}
           name={poem.user_name}
