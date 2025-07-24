@@ -51,7 +51,8 @@ app.use(
 // 4. `express.raw()`: Parses requests with raw binary data.
 
 // Uncomment one or more of these options depending on the format of the data sent by your client:
-
+import cookieParser from "cookie-parser";
+app.use(cookieParser());
 app.use(express.json());
 // app.use(express.urlencoded());
 // app.use(express.text());
