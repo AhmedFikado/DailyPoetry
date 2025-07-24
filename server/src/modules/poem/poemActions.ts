@@ -73,8 +73,8 @@ const readPoetPoems: RequestHandler = async (req, res, next) => {
 };
 const add: RequestHandler = async (req, res, next) => {
   try {
-    const { title, description, image, date } = req.body;
-    if (!title || !description || !image || !date) {
+    const { title, description, image, date, user_id } = req.body;
+    if (!title || !description || !image || !date || !user_id) {
       res.status(400).json("Missing required fields");
       return;
     }
