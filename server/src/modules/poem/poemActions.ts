@@ -54,6 +54,23 @@ const readByIdWithAuthor: RequestHandler = async (req, res, next) => {
   }
 };
 
+const readPoetPoems: RequestHandler = async (req, res, next) => {
+  try {
+    const poetId = Number(req.params.id);
+    if (Number.isNaN(poetId)) {
+      res.status(400).json("Problem with the id");
+      return;
+    }
+    const poetPoems = await poemRepository.readPoetPoems(poetId);
+    if (!poetPoems) {
+      res.status(404).json("There is a problem with those poems");
+    } else {
+      res.status(200).json(poetPoems);
+    }
+  } catch (err) {
+    next(err);
+  }
+};
 const add: RequestHandler = async (req, res, next) => {
   try {
     const { title, description, image, date } = req.body;
@@ -128,6 +145,7 @@ export default {
   browsePoemsWithUser,
   readById,
   readByIdWithAuthor,
+  readPoetPoems,
   add,
   edit,
   destroy,
