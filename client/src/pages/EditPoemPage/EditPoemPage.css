@@ -1,6 +1,8 @@
 .edit-poem-page-main {
   margin: 0 8px;
   text-align: center;
+  display: grid;
+  gap: 40px;
   form {
     display: flex;
     flex-direction: column;
@@ -35,18 +37,17 @@
         background: #388e3c;
       }
     }
-
-    button {
-      margin: 0 auto;
-      padding: 8px 56px;
-      border-radius: 8px;
-      border: none;
-      cursor: pointer;
-      background: #d9d9d9;
-      transition: background 0.4s;
-      &:hover {
-        background-color: #888888;
-      }
+  }
+  button {
+    margin: 0 auto;
+    padding: 8px 56px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    background: #d9d9d9;
+    transition: background 0.4s;
+    &:hover {
+      background-color: #888888;
     }
   }
   @media screen and (min-width: 768px) {
